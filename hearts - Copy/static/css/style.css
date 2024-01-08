@@ -1,0 +1,429 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.blank{
+    display: none;
+}
+.preloader{
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 10000;
+}
+.preloader h3{
+    margin: 30px;
+}
+.preloader img{
+    width: 60%;
+}
+
+.navbar{
+    width: 100%;
+    height: 55px;
+    box-shadow: rgba(73, 207, 247, 0.786)0px 8px 24px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    position: fixed;
+    top: 94%;
+    left: 0;
+    background-color: #ffffff;
+    z-index: 999;
+    border: 0.1px #ff00cc ridge;
+    display: none;
+}
+.container{
+    min-height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    background-position: center;
+
+}
+.container .card{
+    width: 27%;
+    box-shadow: rgba(235, 61, 212, 0.2)0px 8px 24px;
+    border-radius: 20px;
+    min-height: 20vh;
+    display: flex;
+    margin: 20px;
+    background-size: cover;
+    background-position: center;
+}
+.container .card img{
+    width: 40%;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+
+}
+.container .card .detail{
+    padding: 15px;
+}
+.container .card .detail h2{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.card .detail h4{
+    font-weight: bold;
+    font-family: sans-serif;
+    padding: 5px;
+    border-radius: 20px;
+    width: 70%;
+    margin: 10px 0px;
+}
+.card .detail h3{
+    font-family: cursive;
+}
+.card .detail .line{
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(to left,rgb(166, 0, 255),rgb(240, 47, 102));
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.high{
+    display: flex;
+    flex-direction: column;
+}
+.high-img{
+    min-width: 100%;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 0px;
+}
+.card .icons{
+    position: relative;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+
+}
+.icons .icon a{
+    text-decoration: none;
+    color: black;
+}
+.icons .icon i{
+    margin: 5px;
+    transition: 0.3s;
+    border-radius: 50%;
+    font-size: 16px;
+    opacity: 80%;
+    padding: 10px;
+
+}
+.icons .icon i:hover{
+    background-color: rgb(202, 190, 190);
+}
+
+.icons .icon .download{
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    opacity: 80%;
+    padding: 10px;
+    transition: 0.2s;
+    background: linear-gradient(rgb(195, 0, 255),rgb(250, 67, 131));
+}
+.icons .icon .download:hover{
+    background: linear-gradient(to left,rgb(195, 0, 255),rgb(250, 67, 131));   
+}
+.title{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.title .content{
+    width: 90%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+.title .content h1{
+    background-image: linear-gradient(to right, #ff00cc, #ad55ff);
+  -webkit-background-clip: text; /* For Safari/Chrome */
+  background-clip: text;
+  color: transparent;
+  transition: 0.3s;
+
+}
+.title .content h1:hover{
+    background-image: linear-gradient(to left, #ff00cc, #ad55ff);   
+}
+.title .content form input{
+    border-color: #ad55ff;
+    border-width: 1px;
+    border-right: none;
+    border-top: none;
+    padding: 10px 25px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    background-image: linear-gradient(to right, #ff00cc, #ad55ff);
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+    color: transparent;
+    box-shadow: rgba(235, 61, 212, 0.2)0px 8px 24px;
+
+}
+.content form input:focus{
+    outline: none;
+}
+.content form input::placeholder{
+    font-weight: lighter;
+    background-image: linear-gradient(to right, #ff00cc, #ad55ff);
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+    color: transparent;
+  
+}
+.content form button{
+    background: linear-gradient(to right, #ff00cc, #ad55ff);
+    color: white;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 6px 15px;
+    border-color: transparent;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.content form button:hover{
+    background: linear-gradient(to left, #ff00cc, #ad55ff);
+}
+.content form .small{
+    display: none;
+    cursor: pointer;
+}
+.see-more{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 60px;
+    margin: 30px;
+    margin-bottom: -5px;
+}
+.see-more a{
+    background: linear-gradient(to right, #ff00cc,pink,#fff);
+    color: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px 25px;
+    text-align: center;
+    border-color: transparent;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.see-more a:hover{
+    background-image: linear-gradient(to right, #ff00cc, #ad55ff);
+}
+.memo-con{
+    min-height: 30vh;
+}
+.container .memo{
+    width: 40%;
+    box-shadow: rgba(211, 167, 244, 0.786)0px 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    border-radius: 10px;
+    height: 80px;
+    margin-bottom: 20px;
+    background-image: url('https://img1.picmix.com/output/stamp/normal/5/9/2/9/539295_78c26.gif');
+    background-position: center;
+    background-size: cover;
+    margin: 30px;
+}
+.container .memo img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px;
+}
+.container .memo p{
+    margin: 10px;
+    padding: 5px;
+    background: linear-gradient(to right, #00ff8c, #55d7ff);
+    color: #fff;
+    font-weight: bold;
+    font-family: cursive;
+    border-radius: 30px;
+    font-size: 11px;
+}
+.container .memo h4{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+.line{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.line .lining{
+    width: 70%;
+    height: 2px;
+    border-radius: 20px;
+    background: linear-gradient(to right, #ff00ff, #ff5571);
+}
+.about{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+.about .card{
+    width: 70%;
+    min-height: 50vh;
+    font-family: sans-serif;
+    box-shadow: rgba(125, 123, 125, 0.2)0px 8px 24px;
+    padding: 20px;
+    border-radius: 30px;
+    background-image: url('https://media.tenor.com/kKmvIr30vQYAAAAj/stars-changing-colors.gif');
+    background-position: center;
+    background-size: cover;
+}
+.about .card img{
+    position: relative;
+    top: -50%;
+    margin-top: -50px;
+    left: -15%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: rgba(219, 107, 219, 0.436)0px 8px 24px;
+
+}
+.about .card p{
+    font-size: 18px;
+    color: rgb(75, 72, 72);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.about .card .btn{
+    padding: 10px 25px;
+    background: linear-gradient(to right, #ff006f, #ffdd55);
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
+
+}
+.memo-blank{
+    width: 100%;
+    height: 10vh;
+}
+@media(max-width:800px){
+    .container .memo{
+        width: 90%;
+        margin: 0px;
+        margin-bottom: 30px;
+        transition: 0.3s;
+    }
+    .container .memo:hover{
+        width: 95%;
+    }
+    .memo-con{
+        justify-content: center;
+    }
+    .navbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-image: url('https://i.redd.it/87jgis2f4lsz.gif');
+        background-position: center;
+        background-size: cover;
+
+    }
+    .navbar a{
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bolder;
+        background-image: linear-gradient(to right, black,rgb(111, 110, 113));
+        -webkit-background-clip: text; /* For Safari/Chrome */
+        background-clip: text;
+        color: transparent;
+
+
+    }
+    .navbar .active{
+        background-image: linear-gradient(to right, #ff00ff, #ff5571);
+
+    }
+    .container .card{
+        width: 85%;
+    }
+    .header img{
+        display: block;
+    }
+    .title .content{
+        width: 90%;
+    }
+    .content form{
+        display: flex;
+    }
+    .content form input{
+        width: 40px;
+        font-size: 17px;
+    }
+    .content form .small{
+        display: block;
+        padding: 6px 10px;
+        font-size: 17px;
+    }
+    .content form button{
+        display: none;
+    }
+    .title h1{
+        font-size: 25px;
+    }
+}
+
+@media(max-width:400px){
+    .icons .icon  i{
+        margin: 3px;
+        font-size: 90%;
+    }
+}
+@media(max-height:690px){
+    .navbar{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        top: 92%;
+        left: 0;
+        position: fixed;               
+
+    }
+    .about .card{
+        padding-bottom: 20px;
+    }
+
+}

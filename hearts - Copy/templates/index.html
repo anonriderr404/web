@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> KS | Heart-Owners </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="preloader" id="preloader">
+        <img src="{{load}}" alt="img">
+        <h3>please wait... <i class="fas fa-spinner fa-spin"></i></h3>
+    </div>
+    <script>
+        let loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function () { loader.style.display = "none"; });
+
+    </script>
+    <style>
+        .preloader {
+            width: 100%;
+            position: fixed;
+            height: 100vh;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 100000;
+        }
+
+        .preloader h3 {
+            margin: 30px;
+        }
+
+        .preloader img {
+            width: 60%;
+        }
+        .wellcome{
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 99999;
+            background:linear-gradient(rgba(0, 0, 0, 0.461),rgba(0, 0, 0, 0.387));
+            display: flex;
+            align-items: center;
+            display: none;
+            transition: opacity 0.3s ease-in-out;
+            justify-content: center;
+            margin-top: -500px;
+        }
+        .wellcome .card{
+            width: 80%;
+            background-color: #fff;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            min-height: 50vh;
+            background-image: url('https://usagif.com/wp-content/uploads/gif/confetti-4.gif');
+            background-size: cover;
+            background-position: center;
+        }
+        .wellcome .card img{
+            width: 50%;
+            border-radius: 50%;
+            margin-top: -170px;
+            border: 20px solid #fff;
+        }
+        .wellcome .card h2{
+            font-family: sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .wellcome .card p{
+            width: 80%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 16px;
+            text-align: center;
+            margin: 20px;
+        }
+        .wellcome .card button{
+            padding: 10px 25px;
+            background: linear-gradient(to left, #ff00cc, #ad55ff);
+            box-shadow: rgba(235, 61, 212, 0.2)0px 8px 24px;
+            font-size: 20px;
+            font-family: sans-serif;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+        }
+        .card .last{
+            width: 40%;
+            height: 3px;
+            background: linear-gradient(to left, #ff00cc, #ad55ff);
+            border: none;
+            border-radius: 20px;
+            margin: 8px;
+        }
+        .show-pop{
+            display: flex;
+            margin: 0;
+            transition: 0.3s;
+        }
+    </style>
+    <div class="wellcome" id="pop">
+        <div class="card">
+            <img src="{{img}}" width="300">
+            <h2><i class="fa fa-user-plus" aria-hidden="true"></i>
+                wellcome {{person}} !</h2>
+                <div class="last"></div>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quod perspiciatis quibusdam.</p>
+                <button id="close" onclick="hidePop()"><i class="fa fa-compass" aria-hidden="true"></i>
+                    Explore</button>
+        </div>
+    </div>
+    <div class="navbar">
+        <a href="{{url_for('index_view')}}" class="active"><i class="fa-solid fa-square-plus"></i></a>
+        <a href="{{url_for('add_view')}}"><i class="fa-solid fa-puzzle-piece"></i></a>
+        <a href="{{ url_for('alerts') }}"><i class="fa-solid fa-bell"></i></a>
+        <a href="{{url_for('profiles')}}"><i class="fa-solid fa-gears"></i></a>
+        <a href="{{ url_for('logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+    <div class="title">
+        <div class="content">
+            <h1><i class="fa fa-heartbeat" aria-hidden="true"></i> Memories</h1>
+            <form method="get" action="/search">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                <button type="submit" class="small"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        {% for memory in memories %}
+        <div class="card" style="background-image: url('{{bg}}');">
+            <img src="{{ url_for('static', filename='img/' + memory[1]) }}">
+            <div class="detail">
+                <h2><i class="fa-solid fa-camera-retro"></i> {{ memory[2] }}</h2>
+                <div class="line"></div>
+                <h3><i class="fa-solid fa-calendar-days"></i> {{ memory[4] }}</h3>
+                <h4><i class="fa-solid fa-location-dot"></i> @ {{ memory[5] }}</h4>
+                <div class="icons" id="icons">
+                    <div class="blank"></div>
+                    <div class="icon">
+                        <a href="{{url_for('memorize', pk=memory[0])}}"><i
+                                class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="{{url_for('delete_memory', pk=memory[0])}}"><i class="fa-solid fa-trash"></i></a>
+                        <a href="{{ url_for('download_memory_file', filename=memory[1])}}"><i
+                                class="fa-solid fa-download download" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="see-more">
+            <a href="#">See More <i class="fa-solid fa-list"></i></a>
+        </div>
+    </div>
+    <div class="line">
+        <div class="lining"></div>
+    </div>
+    <div class="about">
+        <div class="card">
+            <img src="https://e1.pxfuel.com/desktop-wallpaper/786/177/desktop-wallpaper-cute-anime-couple-dp.jpg"
+                alt="image">
+            <h1><i class="fa-solid fa-rocket"></i> Lorem ipsum dolor sit amet.</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi tempore omnis deserunt, in id perspiciatis
+                sint.</p>
+            <a href="#" class="btn">Learn-More</a>
+        </div>
+    </div>
+    {% if memos %}
+    <div class="title">
+        <div class="content">
+            <h1><i class="fa fa-gem" aria-hidden="true"></i> Impressions</h1>
+            <form method="get" action="/search/impression">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                <button type="submit" class="small"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container memo-con">
+        {% for memo in memos %}
+        <div class="memo">
+            <img src="{{ url_for('static', filename='img/' + memo[1]) }}" width="100">
+            <h4>{{memo[2]}}</h4>
+            <p>{{memo[3]}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="memo-blank"></div>
+    {% endif %}
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll('.container .card img');
+
+            images.forEach(img => {
+                const card = img.parentElement;
+
+                img.onload = function () {
+                    if (img.naturalWidth > img.naturalHeight) {
+                        card.classList.add('high');
+                        img.classList.add('high-img');
+                    }
+                };
+            });
+        });
+
+        const pop_msg = document.getElementById('pop');
+        const close = document.getElementById('close');
+
+        function displayPop(){
+            pop_msg.classList.add('show-pop')
+        }
+
+        setTimeout(function() { displayPop(); }, 10000);
+
+        function hidePop(){
+            pop_msg.classList.remove('show-pop')
+        }
+    </script>
+</body>
+
+</html>

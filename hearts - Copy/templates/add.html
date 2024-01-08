@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/admin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>ADD-MEMORY | HEART-OWNERS</title>
+</head>
+
+<body>
+    <div class="preloader" id="preloader">
+        <img src="{{load}}" alt="img">
+        <h3>please wait... <i class="fas fa-spinner fa-spin"></i></h3>
+    </div>
+    <script>
+        let loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function () { loader.style.display = "none"; });
+
+    </script>
+    <style>
+        .preloader {
+            width: 100%;
+            position: fixed;
+            height: 100vh;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 10000;
+        }
+
+        .preloader h3 {
+            margin: 30px;
+        }
+
+        .preloader img {
+            width: 60%;
+        }
+    </style>
+
+    <div class="title">
+        <div class="content">
+            <h1><i class="fa fa-heartbeat" aria-hidden="true"></i> Memories</h1>
+            <form method="get" action="/search">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                <button type="submit" class="small"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="contents">
+        <div class="navbar">
+            <a href="{{url_for('index_view')}}"><i class="fa-solid fa-square-plus"></i></a>
+            <a href="{{url_for('add_view')}}" class="active"><i class="fa-solid fa-puzzle-piece"></i></a>
+            <a href="{{ url_for('alerts') }}"><i class="fa-solid fa-bell"></i></a>
+            <a href="{{url_for('profiles')}}"><i class="fa-solid fa-gears"></i></a>
+            <a href="{{ url_for('logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
+
+        
+        
+        {% if message %}
+        <div class="message">
+            <i class="fa fa-window-close" aria-hidden="true"></i>
+            <img src="" alt="">
+            <p>{{message}}</p>
+        </div>
+        {% endif %}
+
+        
+        <div class="add-memory">
+            <div class="avatar">
+                <img src="https://media.tenor.com/7SSK-Y2kkuEAAAAi/sweet.gif" alt="">
+            </div>
+            <h2><i class="fa fa-heart" aria-hidden="true"></i> Add an unfogetable memory...</h2>
+            <div class="lin"></div>        
+            {% if ierror %}
+            <h4 class="error"><i class="fa-solid fa-circle-exclamation"></i> {{ierror}}</h4>
+            {% endif %}
+            <form action="/admin" method="post" enctype="multipart/form-data">
+                <label for="image" class="upload">
+                    <i class="fa fa-cloud-upload"></i> Choose an image
+                </label>
+                <input type="file" onchange="updateFileName(this)" name="image" placeholder="memory image" id="image">
+                <input type="text" name="title" placeholder="title">
+                <input type="text" name="description" placeholder="description">
+                <input type="date" name="date" placeholder="date">
+                <input type="text" name="place" placeholder="place">
+
+                <button type="submit" name="memory"><i class="fa-solid fa-plus"></i> ADD</button>
+            </form>
+            <script>
+                function updateFileName(input) {
+                    const fileName = input.files[0].name;
+                    const label = document.querySelector('.upload');
+                    label.textContent = fileName;
+                }
+            </script>
+        </div>
+
+        <div class="title">
+            <div class="content">
+                <h1><i class="fa fa-gem" aria-hidden="true"></i> Impressions</h1>
+                <form method="get" action="/search/impression">
+                    <input type="text" name="query" placeholder="Search...">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                    <button type="submit" class="small"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </div>
+    
+    
+        <div class="add-memo">
+            <div class="avatar">
+                <img src="https://media1.tenor.com/m/tOe-U4oSilQAAAAC/bubba-love.gif" alt="">
+            </div>
+            <h2><i class="fa-solid fa-memory"></i> Unerasable things beyond impressions ...</h2>
+            <div class="lin"></div>        
+            {% if merror %}
+            <h4 class="error"><i class="fa-solid fa-circle-exclamation"></i> {{merror}}</h4>
+            {% endif %}
+            <form action="/admin" method="post" enctype="multipart/form-data">
+                <label for="img" class="upload1">
+                    <i class="fa fa-cloud-upload"></i> Choose an image
+                </label>
+                <input type="file" onchange="updateFileNamememo(this)" name="image" id="img">
+                <input type="text" name="title" placeholder="title">
+                <input type="date" name="date">
+                <button type="submit" name="memo"><i class="fa-solid fa-plus"></i> Submit</button>
+            </form>
+            <script>
+                function updateFileNamememo(input) {
+                    const fileName = input.files[0].name;
+                    const label = document.querySelector('.upload1');
+                    label.textContent = fileName;
+                }
+            </script>
+
+        </div>
+    </div>
+    {% if memos %}
+    <div class="title">
+        <div class="content">
+            <h1><i class="fa fa-gem" aria-hidden="true"></i> Delete-memo</h1>
+            <form method="get" action="/search/impression">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i> search</button>
+                <button type="submit" class="small"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="memos">
+        {% for memo in memos %}
+        <div class="card">
+            <img src="{{ url_for('static', filename='img/' + memo[1]) }}" width="100">
+            <h4><i class="fa-solid fa-puzzle-piece"></i> {{memo[2]}}</h4>
+            <a href="{{url_for('delete_memo', pk=memo[0])}}"><i class="fa-solid fa-trash"></i></a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+
+</html>

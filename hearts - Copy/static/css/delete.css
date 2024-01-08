@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    width: 80%;
+    min-height: 50vh;
+    box-shadow: rgba(219, 107, 219, 0.717)0px 8px 24px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    background-image: url('https://static.wixstatic.com/media/dee246_252bc049d6b647e5bc30fb1c6644016b~mv2.gif');
+    flex-direction: column;
+
+}
+.card img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: -80px;
+    box-shadow: rgba(219, 107, 219, 0.717)0px 8px 24px;
+}
+.card h2{
+    font-family: sans-serif;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.card p{
+    text-align: center;
+    font-weight: lighter;
+    margin-top: 15px;
+    font-family: cursive;
+    margin-bottom: 10px;
+}
+.card form{
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.card .btn{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 15px;
+}
+.card .btn button{
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: rgba(219, 107, 219, 0.717)0px 8px 24px;
+    cursor: pointer;
+    border: none;
+    background:linear-gradient(to right,rgb(241, 57, 57),rgb(235, 235, 107));
+}
+.back{
+    position: fixed;
+    top: 2%;
+    left: 0;
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(to left,rgb(246, 94, 94),yellow);
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.back a{
+    text-decoration: none;
+}
+.back a i{
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}

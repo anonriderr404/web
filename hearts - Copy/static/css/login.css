@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('https://cliply.co/wp-content/uploads/2020/01/402001120_PAPER_HEARTS_400px.gif');
+    background-position: center;
+    background-size: cover;
+
+}
+.login{
+    width: 70%;
+    min-height:65vh;
+    padding: 20px;
+    box-shadow: rgba(219, 107, 219, 0.436)0px 8px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://img1.picmix.com/output/stamp/normal/1/0/6/6/1886601_8db94.gif');
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px;
+}
+.login img{
+    width: 80%;
+}
+.login h1{
+    background-image: linear-gradient(to right,black, #ff00cc, #ad55ff,black);
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    text-align: center;
+    font-family: sans-serif;
+    margin: 20px;
+}
+.login form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.login form input{
+    border-color: transparent;
+    box-shadow: rgba(111, 104, 111, 0.436)0px 8px 24px;
+    padding:10px 15px;
+    margin: 10px;
+    width: 80%;
+    border-radius: 15px;
+    font-size: 18px;
+    background-image: linear-gradient(to right,black, #ff00cc, #ad55ff,black);
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+    color: transparent;
+
+}
+.login form input:focus{
+    outline: none;
+}
+.login form button{
+    padding: 10px 35px;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff00cc, #ad55ff);
+    border-color: transparent;
+    border-radius: 20px;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+.login form button:hover{
+    background: linear-gradient(to left, #ff00cc, #ad55ff);
+}
+.error{
+    width: 80%;
+    padding: 5px;
+    color: white;
+    background: linear-gradient(to left, #ff00cc, #ad55ff);
+    border-radius: 30px;
+    margin: 10px;
+    text-align: center;
+
+}

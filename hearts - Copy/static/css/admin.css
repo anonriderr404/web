@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.contents{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    flex-direction: column;
+    min-height: 120vh;
+    margin-top: 60px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.add-memory,.add-memo{
+    width: 80%;
+    box-shadow: rgba(241, 168, 254, 0.402)0px 8px 24px;
+    height: 73vh;
+    border-radius: 20px;
+    margin-top: 30px;
+    background-image: url('https://bestanimations.com/media/many-hearts/415178065cute-tiny-heart-pattern-floating-up-animated-gif.gif');
+    background-position: center;
+    background-size: cover;
+    padding: 20px;
+}
+.add-memory{
+    margin-bottom: 50px;
+}
+.add-memo{
+    height: 63vh;
+    margin-top: 100px;
+}
+.add-memo form,.add-memory form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 15px;
+
+}
+.add-memory form input,.add-memo form input{
+    width: 80%;
+    height: 30px;
+    border-color: transparent;
+    font-size: 16px;
+    margin: 5px;
+    background-color: transparent;
+}
+.add-memo h2,.add-memory h2{
+    margin: 15px;
+    font-family: sans-serif;
+    font-size: 24px;
+    background-image: linear-gradient(to right, #ff0048, #fff155);
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+    color: transparent;
+
+}
+.add-memory input[type="file"],.add-memo input[type="file"] {
+    display: none;
+}
+.add-memo button,.add-memory button{
+    width: 140px;
+    padding: 15px 25px;
+    font-family: sans-serif;
+    color: #fff;
+    font-weight: bolder;
+    background: linear-gradient(to right, #ff00ff, #ff5571);
+    border-color: transparent;
+    border-radius: 20px;
+}
+.add-memo .error , .add-memory .error{
+    padding: 10px 15px;
+    background: linear-gradient(to right, #ff0051, #f0a262);
+    border-radius: 20px;
+    border-color: transparent;
+    margin: 10px;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 20px;
+}
+.lin{
+    width: 80%;
+    height: 4px;
+    border-radius: 20px;
+    background: linear-gradient(to right, #ff00ff, #ff5571);
+}
+.add-memo .upload1,.add-memory .upload{
+    padding: 10px 25px;
+    margin-top: 15px;
+    border-radius: 30px;
+    background: linear-gradient(to right, #00ff8c, #55d7ff);
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    width: 140px;
+    text-align: center;
+}
+.add-memory form input:focus,.add-memo form input:focus{
+    outline: none;
+}
+.avatar{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.avatar img{
+    width: 150px;
+    height: 150px;
+    box-shadow: rgba(243, 122, 243, 0.402)0px 8px 24px;
+    border-radius: 50%;
+    margin-top: -100px;
+    background-image: #fff;
+}
+.add-memo{
+    background-image: url('https://static.wixstatic.com/media/dee246_252bc049d6b647e5bc30fb1c6644016b~mv2.gif');
+}
+.memos{
+    width: 100%;
+    min-height: 40vh;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    margin-bottom: 50px;
+}
+.memos .card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 20px;
+    height: 50px;
+    background-image: url('https://img1.picmix.com/output/stamp/normal/5/9/2/9/539295_78c26.gif');
+    background-position: center;
+    background-size: cover;
+    
+    margin: 15px 0px;
+    width: 80%;
+    box-shadow: rgba(243, 122, 243, 0.196)0px 8px 24px;
+}
+.memos .card img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: rgba(243, 122, 243, 0.402)0px 8px 24px;
+}
+.memos .card h4{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+.memos .card a{
+    text-decoration: none;
+    font-size: 18px;
+    background-image: linear-gradient(to right, #ff00cc, #ad55ff);
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+    color: transparent;
+
+}

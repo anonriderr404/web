@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Special-Alerts</title>
+</head>
+
+<body>
+    <div class="preloader" id="preloader">
+        <img src="{{load}}" alt="img">
+        <h3>please wait... <i class="fas fa-spinner fa-spin"></i></h3>
+    </div>
+    <script>
+        let loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function () { loader.style.display = "none"; });
+
+    </script>
+    <style>
+        .preloader {
+            width: 100%;
+            position: fixed;
+            height: 100vh;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 10000;
+        }
+
+        .preloader h3 {
+            margin: 30px;
+        }
+
+        .preloader img {
+            width: 60%;
+        }
+
+        .contain {
+            width: 100%;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            display: flex;
+            margin-top: 30px;
+        }
+
+        .add-alert {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: auto;
+            background-image: url('https://media.tenor.com/kKmvIr30vQYAAAAj/stars-changing-colors.gif');
+        }
+
+        .add-alert h1 {
+            background-image: linear-gradient(to right, black, #ff00cc, #ad55ff, black);
+            -webkit-background-clip: text;
+            text-align: center;
+            background-clip: text;
+            color: transparent;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+
+        .add-alert form {
+            min-height: 65vh;
+            margin: 30px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: rgba(221, 149, 221, 0.717)0px 8px 24px;
+            width: 90%;
+            background-image: url('https://i.redd.it/87jgis2f4lsz.gif');
+            background-repeat: 50;
+            border-radius: 20px;
+        }
+
+        .add-alert input {
+            width: 80%;
+            padding: 10px;
+            font-size: 18px;
+            font-family: sans-serif;
+            border-color: transparent;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: rgba(221, 149, 221, 0.717)0px 8px 24px;
+
+        }
+
+        .add-alert input:focus {
+            outline: none;
+        }
+
+        .add-alert form button {
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bold;
+            border-radius: 15px;
+            box-shadow: rgba(219, 107, 219, 0.717)0px 8px 24px;
+            cursor: pointer;
+            border: none;
+            background: linear-gradient(to right, rgb(241, 57, 57), rgb(235, 235, 107));
+
+        }
+
+        .add-alert img {
+            width: 50%;
+        }
+
+        .add-alert h3 {
+            font-family: monospace;
+            background: linear-gradient(to right, rgb(100, 57, 241), rgb(135, 234, 232));
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .my-alert,
+        .other-alert {
+            width: 90%;
+            padding: 15px;
+            min-height: 15px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            background-image: url('https://img1.picmix.com/output/stamp/normal/5/9/2/9/539295_78c26.gif');
+            justify-content: space-between;
+            box-shadow: rgba(218, 144, 218, 0.507)0px 8px 24px;
+            margin: 10px;
+        }
+
+        .my-alert img,
+        .other-alert img {
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .my-alert p,
+        .other-alert p {
+            max-width: 150px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+        }
+
+        .my-alert h4,
+        .other-alert h4 {
+            font-family: monospace;
+            background: linear-gradient(to right, rgb(100, 57, 241), rgb(135, 234, 232));
+            color: #fff;
+            padding: 3px;
+            border: none;
+            border-radius: 20px;
+        }
+    </style>
+    <div class="navbar">
+        <a href="{{url_for('index_view')}}"><i class="fa-solid fa-square-plus"></i></a>
+        <a href="{{url_for('add_view')}}"><i class="fa-solid fa-puzzle-piece"></i></a>
+        <a href="{{ url_for('alerts') }}" class="active"><i class="fa-solid fa-bell"></i></a>
+        <a href="{{url_for('profiles')}}"><i class="fa-solid fa-gears"></i></a>
+        <a href="{{ url_for('logout') }}"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+
+    <div class="contain">
+        <div class="add-alert">
+            <h1><i class="fa-solid fa-puzzle-piece"></i> Let {{name}} know that <i class="fa-solid fa-bell"></i></h1>
+            <form action="/alerts" method="post">
+                <h3> <i class="fa-solid fa-bell"></i> Alert {{name}}</h3>
+                <img src="https://media.tenor.com/CwSfh-O9DSkAAAAC/0legna-e-asuna-vc-consegue-amor.gif" alt="">
+                <input type="text" placeholder="let your soul know..." name="title">
+                <input type="date" name="date">
+                <button type="submit"><i class="fa-solid fa-square-plus"></i> Add Alert</button>
+            </form>
+        </div>
+        <div class="my-alert">
+            <img src="{{img}}" alt="">
+            <p><i class="fa-solid fa-heart"></i> {{my_alert[2]}}</p>
+            <h4>{{my_alert[3]}}</h4>
+        </div>
+        <div class="other-alert">
+            <img src="{{img2}}" alt="">
+            <p><i class="fa-solid fa-heart"></i> {{other_alert[2]}}</p>
+            <h4>{{other_alert[3]}}</h4>
+        </div>
+        <div style="height: 10vh;"></div>
+</body>
+
+</html>

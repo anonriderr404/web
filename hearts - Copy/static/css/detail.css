@@ -1,0 +1,114 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.card{
+    width: 90%;
+    min-height: 60vh;
+    box-shadow: rgba(219, 107, 219, 0.717)0px 8px 24px;
+    flex-direction: column;
+    display: flex;
+    background-image: url('https://img1.picmix.com/output/stamp/normal/5/9/2/9/539295_78c26.gif');
+    background-position: center;
+    border-radius: 20px;
+    justify-content: center;
+}
+.card .img-content{
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+.card .img-content img{
+    width: 50%;
+    border-top-left-radius: 10px;
+}
+.card .img-content .intro{
+    width: 40%;
+    padding: 15px;
+    font-family: sans-serif;
+}
+.card .details{
+    display: flex;
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+}
+.details .t1{
+    font-family: sans-serif;
+    font-size: 30px;
+    padding: 0 15px;
+    background-image: linear-gradient(to right, #ff00cc, #ad55ff);
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    background-clip: text;
+    color: transparent;  
+    text-align: center;
+}
+.details .t2{
+    font-size: 16px;
+    padding: 0px 30px;
+    font-family: sans-serif;
+    margin-top: -15px;
+}
+.details .extra{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: -15px;
+}
+.details .t3{
+    text-align: center;
+    padding: 10px 25px;
+    background: linear-gradient(to right, #ff009d, #e5e162);
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    width: 60%;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+.details .t4{
+    text-align: center;
+    margin-bottom: 0;
+    font-family: cursive;
+    font-size: 13px;
+}.large-image{
+    width: 100%;
+}
+.large-image img{
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+
+}
+.large-image,.hide{
+    display: none;
+}
+.show{
+    display: flex;
+}
+.back{
+    position: fixed;
+    top: 2%;
+    left: 0;
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(to left,rgb(246, 94, 94),yellow);
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.back a{
+    text-decoration: none;
+}
+.back a i{
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
